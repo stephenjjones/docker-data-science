@@ -12,12 +12,13 @@
 	```
 	$ docker run -it -v /Users/stephenjones/Developer/projects/docker-data-science/tf_nbs:/notebooks/jones -p 8889:8888 gcr.io/tensorflow/tensorflow bash
 	```
+- Code away on your local app directory that was mounted (or on your jupyter notebook exposed on the relevant port, localhost:8899)
 - Version control: commit your your local app directory to github as usual, and include your DockerFile in your git repo
 
 
 #### Alternative workflow
 
--In addition to the above, you can commit your docker image to a docker repo (e.g., docker hub). That way others can just run `$ docker run your-image-name`
+- In addition to the above, you can commit your docker image to a docker repo (e.g., docker hub). That way others can simply run `$ docker run your-image-name`. This is optional and is usually just done for deployment or for open sourcing your work to docker hub.
 
 ## Install Docker
 
