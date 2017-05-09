@@ -8,7 +8,7 @@
 	- [RStudio on docker hub](https://hub.docker.com/r/rocker/rstudio/)
 - If you need custom libraries not in the base image, you need to create a custom DockerFile (see below) that extends your base docker image
 - Build a new docker image from your custom DockerFile `$ docker build --rm -t <username>/<image_name> <dockerfile>`
-- Start an instance of your docker image with your custom DockerFile exposing the relevant ports and mounting your local directory
+- Start an instance of your custom docker image, exposing the relevant ports and mounting your local directory
 	```
 	$ docker run -it -v /Users/stephenjones/Developer/projects/docker-data-science/tf_nbs:/notebooks/jones -p 8889:8888 gcr.io/tensorflow/tensorflow bash
 	```
