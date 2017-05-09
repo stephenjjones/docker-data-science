@@ -1,5 +1,24 @@
 # Docker for Data Science Guide
 
+## Workflow
+
+- Search for a base docker image to start from on [docker hub](https://hub.docker.com/)
+	- [Anaconda on docker hub](https://hub.docker.com/r/continuumio/anaconda/)
+	- [Tensorflow on docker hub](tensorflow)
+	- [RStudio on docker hub](https://hub.docker.com/r/rocker/rstudio/)
+- If you need custom libraries not in the base image, you need to create a custom DockerFile (see below) that extends your base docker image
+- Build a new docker image from your custom DockerFile `$ docker build --rm -t <username>/<image_name> <dockerfile>`
+- Start an instance of your docker image with your customer docker image exposing the relevant ports and mounting your local directory
+	```
+	$ docker run -it -v /Users/stephenjones/Developer/projects/docker-data-science/tf_nbs:/notebooks/jones -p 8889:8888 gcr.io/tensorflow/tensorflow bash
+	```
+- Version control: commit your your local app directory to github as usual, and include your DockerFile in your git repo
+
+
+#### Alternative workflow
+
+-In addition to the above, you can commit your docker image to a docker repo (e.g., docker hub). That way others can just run `$ docker run your-image-name`
+
 ## Install Docker
 
 [Install docker for mac](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description)
