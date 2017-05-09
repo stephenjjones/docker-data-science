@@ -28,8 +28,8 @@ $ docker run -it -v /Users/stephenjones/Developer/projects/docker-data-science/a
 ```
 - `-i` flag: alias for `--interactive` keeps STDIN open even if not attached
 - `-t` flag: allocates a pseudo-TTY.
-- `-it`: basically when you combine `-i` and `-t` it makes the container start to look like a terminal conneciton sesion
-- `-v` flag: alias for `--volume` Bind mounts a volume. This basically allows you to connect a local folder on your computer to a folder inside the container.  You can then make changes in either the container or your local and its synced (or rather the same files).
+- `-it`: basically when you combine `-i` and `-t` it makes the container start to look like a terminal connection session
+- `-v` flag: alias for `--volume` Bind mounts a volume. This basically allows you to connect a local folder on your computer to a folder inside the container.  You can then make changes in either the container or your local and its synced (or rather they are the same files).
 	- /absolute/path/to/my/local/folder:/absolute/path/to/folder/in/container
 	- You must use absolute paths
 - `bash`: the bash at the end opens a bash terminal session in the container	
@@ -43,7 +43,7 @@ $ docker run -it -v /Users/stephenjones/Developer/projects/docker-ml/src:/opt/do
 -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook \
  --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
 ```
-- `-p 8889:8888` flag: maps a containers port 8888 to your local host port 8889
+- `-p 8889:8888` flag: maps the container's port 8888 to your localhost port 8889
 - `-c "a command to run"`: In this example we install jupyter, make a new directory for our notebooks, and tell jupyter to use that directory
 
 #### Example: Run tensorflow in shell
@@ -112,7 +112,7 @@ $ docker rmi test-container
 
 ## Dockerfile: Creating your own containers with custom packages
 
-A Dockerfile is a short plain test file that is a recipe for a docker image.  If you are using any packages not in a community provided docker image, you should extend (via `FROM`) a community image, and install your packages in your own docker file. Then you can build a container from your own docker file for reproducability. 
+A Dockerfile is a short plain text file that is a recipe for a docker image.  If you are using any packages not in a community provided docker image, you should extend (via `FROM`) a community image, and install your packages in your own docker file. Then you can build a container from your own docker file for reproducability. 
 
 The best way to learn how to create one is to just look at examples.  They are really easy to read and understand:
 
@@ -136,8 +136,8 @@ The best way to learn how to create one is to just look at examples.  They are r
 	docker push <username>/<image_name>
 	```
 	
-	- `-rm` flag: removes intermidiate containers
-	- `-t` flag: Name and optionally a tag in the ‘name:tag’ format
+	- `-rm` flag: removes intermediate containers
+	- `-t` flag: name and optionally a tag in the ‘name:tag’ format
 
 ## Docker Compose
 
