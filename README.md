@@ -13,6 +13,7 @@
 	$ docker run -it -v /Users/stephenjones/Developer/projects/docker-data-science/tf_nbs:/notebooks/jones -p 8889:8888 gcr.io/tensorflow/tensorflow bash
 	```
 - Code away on your local app directory that was mounted (or on your jupyter notebook exposed on the relevant port, localhost:8899)
+	- using the `-it` flags and the `bash` at the end of the `docker run` command above gives you terminal access to the running docker instance.  I use this to check logs or install ad hoc libs that i'm trying out in my project, when i don't want to go through rebuilding a docker image.  When i know i'm keeping a library though, add it to your dockerfile and build a new image
 - Version control: commit your your local app directory to github as usual, and include your DockerFile in your git repo
 
 
