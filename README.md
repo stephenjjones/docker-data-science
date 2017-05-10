@@ -92,11 +92,18 @@ docker run -it -p 8889:8888 -v /Users/stephenjones/Developer/projects/docker-dat
 #### Example: RStudio
 
 - [rstudio on docker reference](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image)
+- You must use the RStudio server web interface instead of the local desktop app. You can access it through the port you map to the container (localhost:8787) in the example below
 
 ```
 # gets R & RStudio and opens port 9797 for using RStudio server in a web browser, and mounts local volume
-docker run -dp 8787:8787 -v /Users/jones/Developer/projects/docker-data-science:/home/rstudio/ rocker/rstudio
+docker run -dp 8787:8787 -e ROOT=TRUE -v /Users/jones/Developer/projects/docker-data-science:/home/rstudio/ rocker/rstudio
 ```
+- `-e ROOT=TRUE`: The `-e` flag sets environment variables in the container. The RStudio user does not have access to root by default, so you cannot install binary libs with apt-get.  Setting `ROOT=TRUE` enables root from within RStudio
+
+- There are a few popular R base images
+	- rocker/rstudio
+	- rocker/hadleyverse
+	- rocker/ropensci
 
 
 ## Useful Commands
