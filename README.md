@@ -6,7 +6,7 @@
 	- [Anaconda on docker hub](https://hub.docker.com/r/continuumio/anaconda/)
 	- [Tensorflow on docker hub](tensorflow)
 	- [RStudio on docker hub](https://hub.docker.com/r/rocker/rstudio/)
-- If you need custom libraries not in the base image, you need to create a custom DockerFile (see below) that extends your base docker image
+- If you need custom libraries not in the base image, you need to [create a custom DockerFile](#custom-dockerfile) that extends your base docker image
 - Build a new docker image from your custom DockerFile `$ docker build --rm -t <username>/<image_name> <dockerfile>`
 - Start an instance of your custom docker image, exposing the relevant ports and mounting your local directory
 	```
@@ -138,7 +138,9 @@ $ docker rmi test-container
 ```
 
 
-## Dockerfile: Creating your own containers with custom packages
+## Custom DockerFile
+
+**Creating your own containers with custom packages**
 
 A Dockerfile is a short plain text file that is a recipe for a docker image.  If you are using any packages not in a community provided docker image, you should extend (via `FROM`) a community image, and install your packages in your own docker file. Then you can build a container from your own docker file for reproducability. 
 
